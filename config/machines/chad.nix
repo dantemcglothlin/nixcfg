@@ -42,12 +42,19 @@
   };
 
 
-  environment.systemPackages = with pkgs; [spotify discord];
+  environment.systemPackages = with pkgs; [ spotify discord steam odin binutils gcc gnumake cmake nasm qemu mtools xorriso grub2 parted raylib proxychains ];
 
 
   fonts.packages = with pkgs; [ dejavu_fonts ];
 
   programs.hyprland.enable = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
 
   environment.sessionVariables = {
     NIXOS_OZONE_WL = 1;
